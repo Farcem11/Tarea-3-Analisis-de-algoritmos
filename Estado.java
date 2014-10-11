@@ -1,4 +1,4 @@
-package tarea.pkg3.de.analisis;
+package Tarea3;
 
 import java.util.ArrayList;
 

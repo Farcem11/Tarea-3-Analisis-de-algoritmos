@@ -1,7 +1,7 @@
-package tarea.pkg3.de.analisis;
+package Tarea3;
 import java.util.ArrayList;
-import static tarea.pkg3.de.analisis.Estado.MismosEstados;
-import static tarea.pkg3.de.analisis.Estado._EstadosVisitados;
+import static Tarea3.Estado.MismosEstados;
+import static Tarea3.Estado._EstadosVisitados;
 
 public class Juego 
 {
@@ -34,15 +34,7 @@ public class Juego
     
     boolean ValidarEstado(Estado pEstado)
     {
-        if((pEstado.getIslaDerecha().getCanibales() > pEstado.getIslaDerecha().getMisioneros() && pEstado.getIslaDerecha().getMisioneros() != 0)||
-           (pEstado.getIslaIzquierda().getCanibales() > pEstado.getIslaIzquierda().getMisioneros() && pEstado.getIslaIzquierda().getMisioneros() != 0))
-        {
-           return false; 
-        }
-        else
-        {
-            return true;
-        }
+        return (pEstado.getIslaDerecha().getCanibales() <= pEstado.getIslaDerecha().getMisioneros() || pEstado.getIslaDerecha().getMisioneros() == 0) && (pEstado.getIslaIzquierda().getCanibales() <= pEstado.getIslaIzquierda().getMisioneros() || pEstado.getIslaIzquierda().getMisioneros() == 0);
     }
     
     void BackTracking(Estado pEstadoActual)
@@ -63,16 +55,24 @@ public class Juego
                 if(!this._Resuelto)
                 {
                     ArrayList<Estado> PosiblesSoluciones = pEstadoActual.CrearPosiblesSoluciones();
-                    System.out.println("Nuevas posibles soluciones:");
-                    MostrarEstados(PosiblesSoluciones);
-                    System.out.println("Fin de las soluciones\n");
-                    
                     if(!PosiblesSoluciones.isEmpty())
                     {
-                        for(int i = 0; i < PosiblesSoluciones.size() && !this._Resuelto; i++)
+                        System.out.println("Nuevas posibles soluciones:");
+                        MostrarEstados(PosiblesSoluciones);
+                        System.out.println("Fin de las soluciones\n");
+
+                        if(!PosiblesSoluciones.isEmpty())
                         {
-                            BackTracking(PosiblesSoluciones.get(i));
+                            for(int i = 0; i < PosiblesSoluciones.size() && !this._Resuelto; i++)
+                            {
+                                BackTracking(PosiblesSoluciones.get(i));
+                            }
                         }
+                    }
+                    else
+                    {
+                        pEstadoActual.Mostrar();
+                        System.out.println("Es una hoja en el arbol de soluciones\n");
                     }
                 }
             }
@@ -91,8 +91,14 @@ public class Juego
         
         Juego juego = new Juego(CantidadDeCanibales, CantidadDeMisioneros);
         juego.BackTracking(juego._EstadoInicial);
-        
-        System.out.println("Camino de soluciones creado con el backtraking:");
-        MostrarEstados(_EstadosVisitados);
+        if(juego._Resuelto)
+        {
+            System.out.println("Camino de soluciones creado con el backtraking:");
+            MostrarEstados(_EstadosVisitados);
+        }
+        else
+        {
+            System.out.println("No se pudo solucionar el juego con esa cantidad de canibales y misioneros");
+        }
     }
 }
