@@ -35,7 +35,6 @@ ___
 > **CLASE ESTADO:**
 ___
 > Tiene 4 atributos un barco, dos islas, que representan el estado en cual esta el juego actualmente y un array de estados donde se guardan los estados visitados.
-
 ___
 > **Metodos de la clase estado:**
 ___
@@ -77,12 +76,10 @@ ___
 
 > Apartir de la cantidad de canibales y misioneros se crean el estado inicial y final y
 resuelto se inicializa a false;
-
 ___
 > **MostrarEstados:**
 
 > Recibe un array de estados y los muestra en pantalla.
-
 ___
 
 > **ValidarEstado:**
