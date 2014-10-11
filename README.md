@@ -66,9 +66,10 @@ ___
 > **CLASE JUEGO:**
 
 > 
-__ 
-(En el main de esta clase viene un ejemplo de como ejecutar el juego).
-__
+___
+__(En el main de esta clase viene un ejemplo de como ejecutar el juego).__
+___
+
 > Tiene los atributos resuelto que es un booleano que me indica si el juego ya se resolvió, estado inicial que sería el estado en cual inicia el juego, el usuario lo crea y estado final que se crea a partir del estado inicial.
 ___
 > **Métodos de la clase juego:**
