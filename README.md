@@ -15,7 +15,8 @@
 
 ##11/Octubre/2014
 ___
-
+#Profe le adjunto el proyecto de NetBeans donde hice la tarea por cualquier cosa.
+___
 	1) La idea es resolver un problema hipotético donde se tienen tanto misioneros como caníbales en una isla, y deben llevarse en bote hasta otra isla. 
 	El bote puede llevar como máximo 2 personas, como mínimo 1. 
 	El bote no puede ir solo. 
